@@ -19,7 +19,7 @@
     var audioElementw = document.createElement("audio");
     audioElementw.setAttribute("src", "assets/sounds/TaDa.mp3");
     var audioElementl = document.createElement("audio");
-    audioElementl.setAttribute("src", "assets/sounds/TaDa.mp3");
+    audioElementl.setAttribute("src", "assets/sounds/beep-10.mp3");
 
     for (var i = 0; i < numberOfLeters; i++) {
             var displayWordStatus = displayWordStatus + "_ ";
@@ -71,7 +71,10 @@
     document.onkeyup = function(event) {
         var letter = event.key.toLowerCase();
         // check if letter was already selected
-        if (lettersGuessed.indexOf(letter) !== -1) {
+    if (letter === " ") {
+        resetWord();
+            console.log("reset");
+        } else if (lettersGuessed.indexOf(letter) !== -1) {
             console.log("Guessed Already " + letter);
             // beep here
             audioElementd.play();
@@ -113,7 +116,9 @@
             console.log("You win!! " + word);
             // alert("You WON!! The word was '" + word + "'")
             var targetDiv7 = document.getElementById("gameResult");
-            targetDiv7.textContent = "You WIN!!!! The word was '" + word + "'";
+            targetDiv7.textContent = "You WIN!!!! The word was";
+            var targetDiv8 = document.getElementById("gameResultWord");
+            targetDiv8.textContent = "'" + word + "'";
             audioElementw.play();
             resetWord();
         }
@@ -122,7 +127,9 @@
             console.log("You lost!! " + word);
             // alert("Sorry. You Lost!! The word was '" + word + "'")
             var targetDiv7 = document.getElementById("gameResult");
-            targetDiv7.textContent = "Sorry, You LOST!!!! The word was '" + word + "'";
+            targetDiv7.textContent = "Sorry, You LOST!!!! The word was";
+            var targetDiv8 = document.getElementById("gameResultWord");
+            targetDiv8.textContent = "'" + word + "'";
             audioElementl.play();
             resetWord();
         }
