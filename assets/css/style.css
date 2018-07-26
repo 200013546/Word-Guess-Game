@@ -1,0 +1,19 @@
+.jumbotron {
+    heght:100%;
+    width:100%;
+    background-color: #336799;
+  }
+
+  .container {
+    width:1025px;
+  }
+  
+  .jumbotron .container {
+    max-width: 100%;
+    font-family: 'Gaegu', cursive;
+  }
+  
+  p, div {
+    font-family: 'Gaegu', cursive;
+    font-size: 25px;
+}

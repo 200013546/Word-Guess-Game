@@ -8,31 +8,30 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Gaegu" rel="stylesheet">
         <script src="assets/javascript/game.js"></script>
         <title>Word Guess Game</title>
     </head>
     <body>
         <div class="container">
             <div class="jumbotron">
-                <h1 class="display-4">Hangman!</h1>
-                <p class="lead">Press space to get Started!</p>
-                <hr class="my-4">
-                <p class="lead">Wins</p>
-                <div id="wins">0</div>
-                <br>
-                <p class="lead">Losses</p>
-                <div id="loss">0</div>
-                <br>
-                <p class="lead">Current Word</p>
-                <div id="currentWord"></div>
-                <br>
-                <p>Number of Guesses Remaining</p>
-                <div id="guessesRemaining">10</div>
-                <br>
-                <p>Letters Already Guessed</p>
-                <div id="alreadyGuessed"></div>
+                <div class="container text-center">
+                    <img src="assets/images/hangMan.png" height="200px">
+                    <h2 id="gameResult"></h2>
+                    <p>Press space to get Started!</p>
+                    <p>Current Word</p>
+                    <div id="currentWord"></div>
+                    <p>Letters Already Guessed</p>
+                    <div id="alreadyGuessed"></div>
+                    <p>Number of Guesses Remaining</p>
+                    <div id="guessesRemaining">10</div>
+                    <hr class="my-4">
+                    <p>Wins</p>
+                    <div id="wins">0</div>
+                    <p>Losses</p>
+                    <div id="loss">0</div>
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
-

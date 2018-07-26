@@ -1,5 +1,6 @@
     // create list of words
     var words = ["jazz","awkward","banjo","dwarves","fishhook","gazebo","gypsy","ivory","jiffy","unzip","yacht"];
+    var characters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
     var wins = 0;
     var loss = 0;
@@ -13,6 +14,13 @@
     var word = words[wordIndex];
     var displayWordStatus = '';
     var numberOfLeters = word.length;
+    var audioElementd = document.createElement("audio");
+    audioElementd.setAttribute("src", "assets/sounds/beep-10.mp3");
+    var audioElementw = document.createElement("audio");
+    audioElementw.setAttribute("src", "assets/sounds/TaDa.mp3");
+    var audioElementl = document.createElement("audio");
+    audioElementl.setAttribute("src", "assets/sounds/TaDa.mp3");
+
     for (var i = 0; i < numberOfLeters; i++) {
             var displayWordStatus = displayWordStatus + "_ ";
         }
@@ -66,11 +74,12 @@
         if (lettersGuessed.indexOf(letter) !== -1) {
             console.log("Guessed Already " + letter);
             // beep here
+            audioElementd.play();
+        } else if (characters.indexOf(letter) === -1) {
+                    console.log("Letter NOT Valid " + letter);
         } else {
+            lettersGuessed.push(letter);
             console.log("not Guessed " + letter);
-            if (letter !== ' ') {
-                lettersGuessed.push(letter);
-            }
 
             // check if the letter is in the word
             positionOfLetter = word.indexOf(letter);
@@ -102,13 +111,19 @@
         if (LettersGuessedRight === word.length) {
             wins++;
             console.log("You win!! " + word);
-            alert("You WON!! The word was '" + word + "'")
+            // alert("You WON!! The word was '" + word + "'")
+            var targetDiv7 = document.getElementById("gameResult");
+            targetDiv7.textContent = "You WIN!!!! The word was '" + word + "'";
+            audioElementw.play();
             resetWord();
         }
         if (numberOfGuesses === numberOfMisses) {
             loss++;
             console.log("You lost!! " + word);
-            alert("Sorry. You Lost!! The word was '" + word + "'")
+            // alert("Sorry. You Lost!! The word was '" + word + "'")
+            var targetDiv7 = document.getElementById("gameResult");
+            targetDiv7.textContent = "Sorry, You LOST!!!! The word was '" + word + "'";
+            audioElementl.play();
             resetWord();
         }
         setStats();
